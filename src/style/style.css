@@ -1,4 +1,23 @@
+@keyframes slidein {
+  from {
+    right: -430px;
+  }
+  to {
+    right: 30px;
+  }
+}
+
+@keyframes slideout {
+  from {
+    right: 30px;
+  }
+  to {
+    right: -430px;
+  }
+}
+
 body {
+  overflow: hidden;
   font-family: 'Pretendard';
 }
 
@@ -156,11 +175,10 @@ body {
 #info-container {
   position: absolute;
   top: 100px;
-  right: 30px;
+  right: -430px;
   width: 400px;
   border-radius: 16px;
   padding-bottom: 30px;
-  visibility: hidden;
   z-index: 20;
   background-color: #dddddd;
 }
@@ -215,5 +233,13 @@ body {
 }
 
 #info-container.on {
-  visibility: visible;
+  animation-name: slidein;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+#info-container.off {
+  animation-name: slideout;
+  animation-duration: 2s;
+  animation-fill-mode: backwards;
 }
