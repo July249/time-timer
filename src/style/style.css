@@ -1,0 +1,219 @@
+body {
+  font-family: 'Pretendard';
+}
+
+.hidden {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+/* app */
+#app {
+  position: relative;
+  margin: 150px auto;
+}
+
+#timer-display {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  margin: 0 auto;
+}
+
+#timer-display .timer-hour,
+#timer-display .timer-minute,
+#timer-display .timer-second {
+  position: relative;
+  width: 130px;
+  height: 121px;
+  text-align: center;
+}
+
+#timer-display .hour-display,
+#timer-display .minute-display,
+#timer-display .second-display {
+  visibility: hidden;
+  z-index: -10;
+  width: inherit;
+  height: inherit;
+}
+
+#timer-display .hour-display.active,
+#timer-display .minute-display.active,
+#timer-display .second-display.active {
+  visibility: visible;
+  z-index: 10;
+}
+
+#timer-display .timer-counter {
+  display: block;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 1.2;
+  text-align: center;
+  color: #353535;
+}
+
+#timer-display .timer-counter.alert {
+  color: #ff1d1d;
+}
+
+#timer-display .timer-dots {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 20px 25px;
+  height: 80px;
+}
+
+#timer-display .timer-input {
+  visibility: hidden;
+  z-index: -10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  color: #d9d9d9;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 1.2;
+  text-align: center;
+  cursor: auto;
+  /* temp */
+  caret-color: #000;
+}
+
+#timer-display .timer-input::placeholder {
+  color: #d9d9d9;
+}
+
+/* input 화살표 제거 - 적용되는 vendor: Chrome, Safari, Edge, Opera */
+#timer-display .timer-input::-webkit-outer-spin-button,
+#timer-display .timer-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#timer-display .timer-input.active {
+  visibility: visible;
+  z-index: 10;
+}
+
+#btns-container {
+  width: 120px;
+  margin: 240px auto 0;
+}
+
+#btns-container button.active {
+  background-color: #a5b6ee;
+  border-radius: 16px;
+  padding: 15px 30px;
+}
+
+#btns-container button.active:active {
+  background-color: #354971;
+}
+
+#btns-container button.active img {
+  width: 60px;
+  height: 30px;
+}
+
+/* info */
+#info {
+  position: relative;
+}
+
+#info .circle {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  border: 5px solid #d9d9d9;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#info .circle .fa-info {
+  font-size: 20px;
+  padding: 5px;
+  font-weight: 700;
+  color: #d9d9d9;
+}
+
+#info-container {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 400px;
+  border-radius: 16px;
+  padding-bottom: 30px;
+  visibility: hidden;
+  z-index: 20;
+  background-color: #dddddd;
+}
+
+#info-container h2 {
+  margin: 30px auto;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#info-container .desc-container {
+  width: 280px;
+  margin: 0 auto;
+}
+
+#info-container .desc-setting,
+#info-container .desc-start {
+  margin-bottom: 30px;
+}
+
+#info-container .desc-pasue {
+  margin-bottom: 0;
+}
+
+#info-container .desc-setting,
+#info-container .desc-start,
+#info-container .desc-pasue {
+  font-size: 20px;
+}
+
+#info-container .underline {
+  width: inherit;
+  height: 1px;
+  border: 1px solid #3d538a;
+  margin: 5px auto;
+  background-color: #3d538a;
+}
+
+#info-container ul {
+  margin-top: 15px;
+}
+
+#info-container li {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+#info-container li:last-child {
+  margin-bottom: 0;
+}
+
+#info-container.on {
+  visibility: visible;
+}
