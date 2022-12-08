@@ -64,6 +64,55 @@ function timeDistributer({ hour, min, sec }) {
   $secondInput.value = sec;
 }
 
+/* 유효성 검사 */
+function hourValidationTest(value) {
+  const strValue = value.toString();
+
+  if (strValue.length === 0) {
+    return true;
+  } else if (strValue.length === 1) {
+    const regEx = /[0-9]/g;
+    return regEx.test(strValue);
+  } else if (strValue.length === 2) {
+    const regEx = /([1][0-9])|([2][0-4])/g;
+    return regEx.test(strValue);
+  } else {
+    return false;
+  }
+}
+
+function minuteValidationTest(value) {
+  const strValue = value.toString();
+
+  if (strValue.length === 0) {
+    return true;
+  } else if (strValue.length === 1) {
+    const regEx = /^[0-9]/g;
+    return regEx.test(strValue);
+  } else if (strValue.length === 2) {
+    const regEx = /[0-5][0-9]/g;
+    return regEx.test(strValue);
+  } else {
+    return false;
+  }
+}
+
+function secondValidationTest(value) {
+  const strValue = value.toString();
+
+  if (strValue.length === 0) {
+    return false;
+  } else if (strValue.length === 1) {
+    const regEx = /^[0-9]/g;
+    return regEx.test(strValue);
+  } else if (strValue.length === 2) {
+    const regEx = /[0-5][0-9]/g;
+    return regEx.test(strValue);
+  } else {
+    return false;
+  }
+}
+
 /* 요소 활성화 기능 */
 function activeInput() {
   $displays.forEach(($display) => {
