@@ -19,6 +19,8 @@ const $inputs = $timer.querySelectorAll(".timer-input");
 const $controllerBtns = $buttons.querySelectorAll("button");
 
 /* functions */
+
+/* 요소 활성화 기능 */
 function activeInput() {
   $displays.forEach(($display) => {
     $display.classList.remove("active");
@@ -34,5 +36,11 @@ function activeDisplay() {
   });
   $displays.forEach(($display) => {
     $display.classList.add("active");
+  });
+}
+
+function alertDisplay() {
+  $displays.forEach(($display) => {
+    $display.classList.add("alert");
   });
 }
