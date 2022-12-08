@@ -18,6 +18,21 @@ const $inputs = $timer.querySelectorAll(".timer-input");
 /* button NodeList */
 const $controllerBtns = $buttons.querySelectorAll("button");
 
+/* functions */
 function activeInput() {
-  $;
+  $displays.forEach(($display) => {
+    $display.classList.remove("active");
+  });
+  $inputs.forEach(($input) => {
+    $input.classList.add("active");
+  });
+}
+
+function activeDisplay() {
+  $inputs.forEach(($input) => {
+    $input.classList.remove("active");
+  });
+  $displays.forEach(($display) => {
+    $display.classList.add("active");
+  });
 }
