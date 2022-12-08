@@ -19,6 +19,31 @@ const $inputs = $timer.querySelectorAll(".timer-input");
 const $controllerBtns = $buttons.querySelectorAll("button");
 
 /* functions */
+/* 타이머 시작시 동작하는 함수 */
+function timerStart() {
+  activeDisplay();
+
+  const hour = $hourDisplay.textContent;
+  const min = $minuteDisplay.textContent;
+  const sec = $secondDisplay.textContent;
+
+  const time = hour * 3600000 + min * 60000 + sec * 1000;
+  countDown(time, true);
+}
+
+/* 타이머 일시 정지시 동작하는 함수 */
+function timerStandBy() {
+  activeInput();
+
+  let hour = $hourDisplay.textContent;
+  let min = $minuteDisplay.textContent;
+  let sec = $secondDisplay.textContent;
+
+  const remainTime = hour * 3600000 + min * 60000 + sec * 1000;
+
+  countDown(remainTime, false);
+}
+
 /* 타이머 카운트다운 기능 */
 let timeValue;
 
