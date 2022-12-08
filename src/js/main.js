@@ -66,6 +66,15 @@ function timerStandBy() {
   countDown(remainTime, false);
 }
 
+/* 타이머 초기화 함수 */
+function timerReset(run) {
+  alert("Time Over");
+  activeInput();
+  activeButton();
+  run = false;
+  return run;
+}
+
 /* 타이머 카운트다운 기능 */
 let timeValue;
 
@@ -89,10 +98,7 @@ function countDown(time, run) {
     timeValue = 0;
     return timeValue;
   } else if (time === 0) {
-    alert("Time Over");
-    activeButton();
-    run = false;
-    return run;
+    timerReset();
   }
 }
 
