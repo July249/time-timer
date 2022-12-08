@@ -14,11 +14,11 @@
 
    - 각 단계는 다음과 같이 나뉜다.
 
-   - [ ] 1. HTML, CSS
-   - [ ] 2. 바닐라 자바스크립트 (without Class)
-   - [ ] 3. 바닐라 자바스크립트 (with Class)
-   - [ ] 4. 바닐라 자바스크립트 (with Jasmine TDD)
-   - [ ] 5. 리액트 & 스타일컴포넌트
-   - [ ] 6. 리액트 & 스타일컴포넌트 (with Jest TDD)
+     1. HTML, CSS
+     2. 바닐라 자바스크립트 (without Class)
+     3. 바닐라 자바스크립트 (with Class)
+     4. 바닐라 자바스크립트 (with Jasmine TDD)
+     5. 리액트 & 스타일컴포넌트
+     6. 리액트 & 스타일컴포넌트 (with Jest TDD)
    
 4. 배포는 GitHub로 진행한다.
