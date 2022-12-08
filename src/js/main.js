@@ -2,9 +2,11 @@ const $timer = document.querySelector("#timer-display");
 const $buttons = document.querySelector("#btns-container");
 
 /* timer display number */
-const $hour = $timer.querySelector(".hour-display .timer-counter");
-const $minute = $timer.querySelector(".minute-display .timer-counter");
-const $second = $timer.querySelector(".second-display .timer-counter");
+const $hourNum = $timer.querySelector(".hour-display .timer-counter");
+const $minuteNum = $timer.querySelector(".minute-display .timer-counter");
+const $secondNum = $timer.querySelector(".second-display .timer-counter");
+
+const $nums = [$hourNum, $minuteNum, $secondNum];
 
 /* timer display elements */
 const $hourDisplay = $timer.querySelector(".hour-display");
@@ -41,9 +43,9 @@ $controllerBtns.forEach((btn) => {
 function timerStart() {
   activeDisplay();
 
-  const hour = $hourDisplay.textContent;
-  const min = $minuteDisplay.textContent;
-  const sec = $secondDisplay.textContent;
+  const hour = $hourInput.value || 0;
+  const min = $minuteInput.value || 0;
+  const sec = $secondInput.value || 0;
 
   const time = hour * 3600000 + min * 60000 + sec * 1000;
   countDown(time, true);
@@ -53,9 +55,9 @@ function timerStart() {
 function timerStandBy() {
   activeInput();
 
-  let hour = $hourDisplay.textContent;
-  let min = $minuteDisplay.textContent;
-  let sec = $secondDisplay.textContent;
+  let hour = $hourNum.textContent;
+  let min = $minuteNum.textContent;
+  let sec = $secondNum.textContent;
 
   const remainTime = hour * 3600000 + min * 60000 + sec * 1000;
 
@@ -67,15 +69,17 @@ let timeValue;
 
 /* 타이머 동작 함수 */
 function countDown(time, run) {
-  if (time > 1000 && run) {
+  console.log(time / 1000, run);
+  if (time >= 1000 && run) {
+    if (time <= 60000 && run) {
+      alertDisplay();
+    }
     /* 타이머 동작 */
     timeDistributer(milliSecondsUnitTransfer(time - 1000));
     timeValue = setTimeout(() => {
-      console.log(time - 1000);
+      console.log((time - 1000) / 1000);
       countDown(time - 1000, true);
     }, 1000);
-  } else if (time < 60 * 1000 && run) {
-    alertDisplay();
   } else if (!run) {
     /* 타이머 일시 정지 */
     clearTimeout(timeValue);
@@ -84,6 +88,8 @@ function countDown(time, run) {
     return timeValue;
   } else if (time === 0) {
     alert("Time Over");
+    run = false;
+    return run;
   }
 }
 
@@ -98,9 +104,9 @@ function milliSecondsUnitTransfer(time) {
 
 /* 시간을 각 요소에 전달해주는 함수 */
 function timeDistributer({ hour, min, sec }) {
-  $hourDisplay.textContent = hour;
-  $minuteDisplay.textContent = min;
-  $secondDisplay.textContent = sec;
+  $hourNum.textContent = hour;
+  $minuteNum.textContent = min;
+  $secondNum.textContent = sec;
 
   $hourInput.value = hour;
   $minuteInput.value = min;
@@ -176,7 +182,7 @@ function activeDisplay() {
 }
 
 function alertDisplay() {
-  $displays.forEach(($display) => {
-    $display.classList.add("alert");
+  $nums.forEach(($num) => {
+    $num.classList.add("alert");
   });
 }
