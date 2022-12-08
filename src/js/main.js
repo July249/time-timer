@@ -1,10 +1,15 @@
 const $timer = document.querySelector("#timer-display");
 const $buttons = document.querySelector("#btns-container");
 
+/* timer display number */
+const $hour = $timer.querySelector(".hour-display .timer-counter");
+const $minute = $timer.querySelector(".minute-display .timer-counter");
+const $second = $timer.querySelector(".second-display .timer-counter");
+
 /* timer display elements */
-const $hourDisplay = $timer.querySelector(".hour-display .timer-counter");
-const $minuteDisplay = $timer.querySelector(".minute-display .timer-counter");
-const $secondDisplay = $timer.querySelector(".second-display .timer-counter");
+const $hourDisplay = $timer.querySelector(".hour-display");
+const $minuteDisplay = $timer.querySelector(".minute-display");
+const $secondDisplay = $timer.querySelector(".second-display");
 
 const $displays = [$hourDisplay, $minuteDisplay, $secondDisplay];
 
