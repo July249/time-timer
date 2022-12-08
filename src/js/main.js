@@ -69,8 +69,11 @@ function timerStandBy() {
 /* 타이머 초기화 함수 */
 function timerReset(run) {
   alert("Time Over");
+
   activeInput();
+  setInitialization();
   activeButton();
+
   run = false;
   return run;
 }
@@ -201,4 +204,11 @@ function activeButton() {
     $button.classList.toggle("hidden");
     $button.classList.toggle("active");
   });
+}
+
+/* 초기화 함수 */
+function setInitialization() {
+  $hourInput.value = "";
+  $minuteInput.value = "";
+  $secondInput.value = "";
 }
