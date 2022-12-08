@@ -32,8 +32,10 @@ $controllerBtns.forEach((btn) => {
     const target = e.currentTarget;
     if (target.classList.contains("play-btn")) {
       timerStart();
+      activeButton();
     } else if (target.classList.contains("pause-btn")) {
       timerStandBy();
+      activeButton();
     }
   });
 });
@@ -88,6 +90,7 @@ function countDown(time, run) {
     return timeValue;
   } else if (time === 0) {
     alert("Time Over");
+    activeButton();
     run = false;
     return run;
   }
@@ -184,5 +187,12 @@ function activeDisplay() {
 function alertDisplay() {
   $nums.forEach(($num) => {
     $num.classList.add("alert");
+  });
+}
+
+function activeButton() {
+  $controllerBtns.forEach(($button) => {
+    $button.classList.toggle("hidden");
+    $button.classList.toggle("active");
   });
 }
