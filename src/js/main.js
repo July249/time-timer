@@ -18,6 +18,19 @@ const $inputs = $timer.querySelectorAll(".timer-input");
 /* button NodeList */
 const $controllerBtns = $buttons.querySelectorAll("button");
 
+/* DOM element event functions */
+/* button event control */
+$controllerBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    const target = e.currentTarget;
+    if (target.classList.contains("play-btn")) {
+      timerStart();
+    } else if (target.classList.contains("pause-btn")) {
+      timerStandBy();
+    }
+  });
+});
+
 /* functions */
 /* 타이머 시작시 동작하는 함수 */
 function timerStart() {
